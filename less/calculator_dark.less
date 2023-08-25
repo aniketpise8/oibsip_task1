@@ -1,0 +1,200 @@
+@hue: 200;
+@saturation: 100%;
+@lightness: 50%;
+
+// Dark Scheme
+@surface1-dark: hsl(@hue, 10%, 65%);
+@surface2-dark: hsl(@hue, 10%, 40%);
+@surface3-dark: hsl(@hue, 5%, 45%);
+@surface4-dark: hsl(@hue, 5%, 25%);
+@surface5-dark: hsl(@hue, 5%, 35%);
+
+body {
+    margin: 0;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: @surface5-dark;
+
+    position: relative;
+    #switch {
+        top: 10px;
+        left: 10px;
+        position: fixed;
+        width: fit-content;
+        height: fit-content;
+        border: none;
+        background: none;
+
+        font-weight: bold;
+        color: @surface1-dark;
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            fill: @surface1-dark;
+        }
+    }
+
+    #container {
+        padding: 25px;
+        border-radius: 10px;
+        background: @surface4-dark;
+
+        #display-screen {
+            width: 100%;
+            height: 75px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background: @surface3-dark;
+
+            display: flex;
+            font-weight: bold;
+            flex-direction: column;
+            justify-content: space-between;
+
+            #preview {
+                color: @surface4-dark;
+                margin: 10px 0 0 20px;
+            }
+
+            #result {
+                margin: 0 20px 25px 0;
+                font-size: 28px;
+                text-align: right;
+                color: @surface1-dark;
+            }
+        }
+
+        #action-button {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(5, 1fr);
+
+            button {
+                width: 60px;
+                height: 55px;
+                border: none;
+                font-weight: bold;
+                border-radius: 5px;
+
+                &:active {
+                    opacity: 0.8;
+                }
+
+                &:nth-child(-n+5) {
+                    height: 45px;
+                }
+
+                &:nth-child(9),
+                &:nth-child(10),
+                &:nth-child(14),
+                &:nth-child(15),
+                &:nth-child(19),
+                &:nth-child(20),
+                &:nth-child(21),
+                &:nth-child(23),
+                &:nth-child(-n+5) {
+                    color: @surface4-dark;
+                    background: @surface2-dark;
+                }
+
+                &:nth-child(6),
+                &:nth-child(7),
+                &:nth-child(8),
+                &:nth-child(11),
+                &:nth-child(12),
+                &:nth-child(13),
+                &:nth-child(16),
+                &:nth-child(17),
+                &:nth-child(18),
+                &:nth-child(22) {
+                    color: @surface1-dark;
+                    background: @surface3-dark;
+                }
+
+                &:nth-child(24) {
+                    width: 100%;
+                    color: @surface4-dark;
+                    grid-column: span 2;
+                    background: @surface1-dark;
+                }
+            }
+        }
+    }
+
+    #history {
+        width: 340px;
+        height: 390px;
+        padding: 25px;
+        font-weight: bold;
+        position: relative;
+        border-radius: 10px;
+        background: @surface4-dark;
+        margin-left: 10px;
+
+        #history_item {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .history-entry {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 5px 0;
+            background: @surface3-dark;
+            border-radius: 5px;
+
+            .expression {
+                flex: 1;
+                color: @surface4-dark;
+            }
+
+            .result {
+                color: @surface1-dark;
+            }
+        }
+
+        #trash {
+            width: 45px;
+            height: 45px;
+            border: none;
+            font-size: large;
+            border-radius: 10px;
+            background: @surface4-dark;
+            box-shadow: 2px 2px 5px @surface2-dark,
+                -2px -2px 5px @surface2-dark;
+
+            right: 25px;
+            bottom: 25px;
+            position: absolute;
+
+            &:active {
+                color: @surface2-dark;
+            }
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: @surface2-dark;
+         
+                &:active {
+                    fill: @surface3-dark;
+                }
+            }
+        }
+    }
+}

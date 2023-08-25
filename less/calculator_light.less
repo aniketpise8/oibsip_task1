@@ -1,0 +1,178 @@
+// Light Theme
+@surface1-light: #143C5F;
+@surface2-light: #4D8AC8;
+@surface3-light: #A2D0FA;
+@surface4-light: #CCE5FF;
+@surface5-light: #EBF5FF;
+
+body {
+    margin: 0;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: @surface2-light;
+
+    position: relative;
+    #switch {
+        top: 10px;
+        left: 10px;
+        position: fixed;
+        width: fit-content;
+        height: fit-content;
+        border: none;
+        background: none;
+
+        font-weight: bold;
+        color: @surface5-light;
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            fill: @surface5-light;
+        }
+    }
+
+    #container {
+        padding: 25px;
+        border-radius: 10px;
+        background: @surface5-light;
+
+        #display-screen {
+            width: 100%;
+            height: 75px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background: @surface4-light;
+
+            display: flex;
+            font-weight: bold;
+            flex-direction: column;
+            justify-content: space-between;
+
+            #preview {
+                color: @surface2-light;
+                margin: 10px 0 0 20px;
+            }
+
+            #result {
+                margin: 0 20px 25px 0;
+                font-size: 28px;
+                text-align: right;
+                color: @surface1-light;
+            }
+        }
+
+        #action-button {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(5, 1fr);
+    
+            button {
+                width: 60px;
+                height: 55px;
+                border: none;
+                font-weight: bold;
+                border-radius: 5px;
+    
+                &:nth-child(-n+5) {
+                    height: 45px;
+                }
+
+                &:nth-child(9), &:nth-child(10),
+                &:nth-child(14), &:nth-child(15),
+                &:nth-child(19), &:nth-child(20),
+                &:nth-child(21), &:nth-child(23),
+                &:nth-child(-n+5)  {
+                    color: @surface2-light;
+                    background: @surface3-light;
+                }
+
+                &:nth-child(6), &:nth-child(7), &:nth-child(8),
+                &:nth-child(11), &:nth-child(12), &:nth-child(13),
+                &:nth-child(16), &:nth-child(17), &:nth-child(18),
+                &:nth-child(22)  {
+                    color: @surface1-light;
+                    background: @surface4-light;
+                }
+    
+                &:nth-child(24) {
+                    width: 100%;
+                    color: @surface5-light;
+                    grid-column: span 2;
+                    background: @surface2-light;
+                }
+            }
+        }
+    }
+
+    #history {
+        width: 340px;
+        height: 390px;
+        padding: 25px;
+        font-weight: bold;
+        position: relative;
+        border-radius: 10px;
+        background: @surface5-light;
+        margin-left: 10px;
+
+        #history_item {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+        }
+        
+        .history-entry {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 5px 0;
+            background: @surface4-light;
+            border-radius: 5px;
+            
+            .expression {
+                flex: 1;
+                color: @surface2-light;
+            }
+
+            .result {
+                color: @surface1-light;
+            }
+        }
+
+        #trash {
+            width: 45px;
+            height: 45px;
+            border: none;
+            font-size: large;
+            border-radius: 10px;
+            background: @surface5-light;
+            box-shadow: 2px 2px 5px @surface3-light,
+                        -2px -2px 5px @surface3-light;
+            
+            right: 25px;
+            bottom: 25px;
+            position: absolute;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: @surface2-light;
+         
+                &:active {
+                    fill: @surface3-light;
+                }
+            }
+        }
+    }
+}
